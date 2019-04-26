@@ -7,9 +7,12 @@ WORKDIR /install
 
 RUN apk --update add git libffi-dev openssl-dev
 RUN git clone https://github.com/AdaptiveScale/lxdui.git /app
+COPY /install/app/conf /install/conf
+COPY /install/app/setup.py /install/setup.py
 RUN pip install setuptools
-RUN pip install --install-option="--prefix=/install" -r /app/requirements.txt
-RUN python /app/setup.py install
+#RUN pip install --install-option="--prefix=/install" -r /app/requirements.txt
+RUN python setup.py install
+RUN rm -rf /conf
 
 FROM jfloff/alpine-python:3.6-slim
 RUN /entrypoint.sh \
