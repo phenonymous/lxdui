@@ -1,4 +1,4 @@
-# docker run -it -p 15151:15151 -v /var/snap/lxd/common/lxd/unix.socket:/var/snap/lxd/common/lxd/unix.socket lxdui
+# docker run -it -p 15151:15151 -v /var/snap/lxd/common/lxd/unix.socket:/var/snap/lxd/common/lxd/unix.socket phenonymous/lxdui
 
 FROM jfloff/alpine-python:3.6 as BUILDER
 
